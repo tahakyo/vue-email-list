@@ -1,11 +1,17 @@
-const app = new vue (
+const app = new Vue(
     {
-        el : '#root' ,
-        data : {
-
+        el: '#root',
+        data: {
+            emails: []
         },
-        methods : {
-
-        },
+        created() {
+            for (let i = 0; i < 10; i++) {
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then( (resp) => {
+                    const newEmail = resp.data.response;
+                    this.emails.push(newEmail);
+                });
+            }  
+        }
     }
-)
+) 

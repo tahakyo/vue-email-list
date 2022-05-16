@@ -17,6 +17,11 @@
 </head>
 <body>
     <div id="root">
+        <ul v-if="emails.length >= 10">
+            <li v-for="item in emails">
+                {{ item }}
+            </li>
+        </ul>
 
     </div>
 
